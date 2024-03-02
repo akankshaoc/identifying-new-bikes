@@ -29,14 +29,4 @@ public class LoginPage {
 		String fileName = Math.random() + "1";
 		file.renameTo(new File("./src/test/resources/screenshots/" + fileName + ".png"));
 	}
-	
-	public void switchBackToHomeWindow() {
-		String homePageWindowHandle = null;
-		String singnInWindow = driver.getWindowHandle();
-		for(String windowHandle : driver.getWindowHandles()) {
-			if(!windowHandle.equals(singnInWindow)) 
-				homePageWindowHandle = windowHandle;
-		}
-		driver.switchTo().window(homePageWindowHandle);
-	}
 }

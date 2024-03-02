@@ -30,7 +30,7 @@ public class LoginTest extends AppTest{
 	@AfterClass
 	public void navigateBackToHome() {
 		super.driver.close();
-		loginPage.switchBackToHomeWindow();
+		super.driver.switchTo().window(homePage.homePageWindowHandle);
 		homePage.closeModal();
 	}
 }

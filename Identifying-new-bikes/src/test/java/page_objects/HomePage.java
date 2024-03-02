@@ -21,6 +21,8 @@ public class HomePage {
 	By loginButtonLocator = By.id("forum_login_title_lg");
 	By loginGoogleButtonLocator = By.xpath("//div[@data-track-label='Popup_Login/Register_with_Google']");
 	By closeModalLocator = By.id("report_submit_close_login");
+	
+	public String homePageWindowHandle;
 
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
@@ -50,7 +52,7 @@ public class HomePage {
 		Thread.sleep(3000);
 		driver.findElement(loginGoogleButtonLocator).click();
 		Thread.sleep(3000);
-		String homePageWindowHandle = driver.getWindowHandle();
+		homePageWindowHandle = driver.getWindowHandle();
 
 		String singnInWindow = null;
 		for(String windowHandle : driver.getWindowHandles()) {
