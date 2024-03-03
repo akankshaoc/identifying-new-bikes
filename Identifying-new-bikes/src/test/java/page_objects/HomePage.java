@@ -77,6 +77,5 @@ public class HomePage {
 		page.launch();
 		LoginPage lpage = page.launchLoginPage();
 		lpage.fillSignInForm("000999888HAHA");
-		lpage.captureScreenShot();
 	}
 }

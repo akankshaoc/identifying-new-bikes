@@ -19,7 +19,6 @@ public class LoginTest extends AppTest{
 	@Test(dataProvider = "email", dataProviderClass = data_provider.LoginCredentials.class)
 	public void positiveEmailLoginTest(String email) throws InterruptedException {
 		loginPage.fillSignInForm(email);
-		loginPage.captureScreenShot();
 		boolean signInAccepted = loginPage.singInAccepted();
 		if(signInAccepted) {
 			driver.navigate().back();
@@ -30,7 +29,6 @@ public class LoginTest extends AppTest{
 	@Test(dataProvider = "email", dataProviderClass = data_provider.LoginCredentials.class)
 	public void negativeEmailLoginTest(String email) throws InterruptedException {
 		loginPage.fillSignInForm(email);
-		loginPage.captureScreenShot();
 		boolean signInAccepted = loginPage.singInAccepted();
 		if(signInAccepted) {
 			driver.navigate().back();
@@ -41,7 +39,6 @@ public class LoginTest extends AppTest{
 	@Test(dataProvider = "phone_number", dataProviderClass = data_provider.LoginCredentials.class)
 	public void positivePhoneNumberLoginTest(String phno) throws InterruptedException {
 		loginPage.fillSignInForm(phno);
-		loginPage.captureScreenShot();
 		boolean signInAccepted = loginPage.singInAccepted();
 		if(signInAccepted) {
 			driver.navigate().back();
@@ -52,7 +49,6 @@ public class LoginTest extends AppTest{
 	@Test(dataProvider = "phone_number", dataProviderClass = data_provider.LoginCredentials.class)
 	public void negativePhoneNumberLoginTest(String phno) throws InterruptedException {
 		loginPage.fillSignInForm(phno);
-		loginPage.captureScreenShot();
 		boolean signInAccepted = loginPage.singInAccepted();
 		if(signInAccepted) {
 			driver.navigate().back();

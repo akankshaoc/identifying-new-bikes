@@ -26,12 +26,6 @@ public class LoginPage {
 		Thread.sleep(2000);
 	}
 	
-	public void captureScreenShot() {
-		File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		String fileName = Math.random() + "1";
-		file.renameTo(new File("./src/test/resources/screenshots/" + fileName + ".png"));
-	}
-	
 	public boolean singInAccepted() {
 		try {
 			WebElement errorMessage = driver.findElement(errorMessageLocator);
