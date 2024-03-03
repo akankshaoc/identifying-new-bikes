@@ -20,7 +20,6 @@ public class UpcomingBikesData {
 				.toFormatter(Locale.ENGLISH);
 		LocalDate res = LocalDate.parse(str, parseFormatter);
 		int lastDay = res.getMonth().length(res.isLeapYear());
-		//System.out.println(lastDay);
 		res = LocalDate.of(res.getYear(), res.getMonth(), lastDay);
 		return res;
 	}

@@ -1,36 +1,37 @@
 package test_scenarios;
 
-import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import common.AppTest;
 import page_objects.UpcomingBikesPage;
 import utils.BikeDataReaderWriter;
-import utils.DriverSetup;
 
-public class UpcomingBikesTest {
+public class UpcomingBikesTest extends AppTest{
 
 	UpcomingBikesPage page;
-	WebDriver driver;
-	BikeDataReaderWriter excelIO;
 
 	@BeforeClass
-	public void Init() throws Exception {
-		this.driver = DriverSetup.getDriver();
+	public void initialise() throws Exception {
+		//0. navigating from home to upcoming bikes
+		homePage.navigateToUpcommingBikes();
+		
+		//1. initializing page object
 		this.page = new UpcomingBikesPage(driver);
-		this.excelIO = new BikeDataReaderWriter();
-		page.launch();
-	}
-
-	public void getDetailsOfUpcomingBikesUnder2Lakhs() throws IOException {
+		
+		//2. initializing excel reader writer
+		BikeDataReaderWriter excelIO = new BikeDataReaderWriter();
+		
+		//3. applying filters on the page
 		page.applyManufacturereFilter();
 		page.applyPriceFilter();
+		
+		//4. storing results to excel sheets
 		List<String[]> results = page.getBikeDetails();
 		page.storeDetailsInExcel(results, excelIO);
 	}
@@ -42,7 +43,6 @@ public class UpcomingBikesTest {
 		Assert.assertTrue(Double.compare(price, 200000) < 0, name + " bike has price " + price + " > 2L");
 	}
 
-	// 2. all the bikes should be upcomming
 	@Test(dataProvider = "bikes", 
 			dataProviderClass = data_provider.UpcomingBikesData.class, 
 			description = "check is any bike with release date of the past was retreived on application of appropriate filters", priority = 1)
@@ -51,7 +51,7 @@ public class UpcomingBikesTest {
 	}
 
 	@AfterClass
-	public void destroy() {
-		driver.quit();
+	public void naturalise() {
+		homePage.launch();
 	}
 }

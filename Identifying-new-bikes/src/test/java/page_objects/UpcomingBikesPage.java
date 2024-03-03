@@ -105,17 +105,17 @@ public class UpcomingBikesPage {
 		excelIO.writeToNewBikes(new String[] {"name", "price", "dates"}, details);
 	}
 
-	public static void main(String args[]) throws InterruptedException {
-		UpcomingBikesPage page = new UpcomingBikesPage(new ChromeDriver());
-		page.launch();
-		page.applyManufacturereFilter();
-		page.applyPriceFilter();		
-		for(String[] details: page.getBikeDetails()) {
-			System.out.print(details[0] + " ");
-			System.out.print(details[1] + " ");
-			System.out.print(details[2] + " ");
-			System.out.println();
-		}
-	}
+//	public static void main(String args[]) throws InterruptedException {
+//		UpcomingBikesPage page = new UpcomingBikesPage(new ChromeDriver());
+//		page.launch();
+//		page.applyManufacturereFilter();
+//		page.applyPriceFilter();		
+//		for(String[] details: page.getBikeDetails()) {
+//			System.out.print(details[0] + " ");
+//			System.out.print(details[1] + " ");
+//			System.out.print(details[2] + " ");
+//			System.out.println();
+//		}
+//	}
 
 }

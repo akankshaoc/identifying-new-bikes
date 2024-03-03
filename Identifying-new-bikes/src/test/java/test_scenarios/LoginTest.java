@@ -11,7 +11,7 @@ public class LoginTest extends AppTest{
 	LoginPage loginPage;
 	
 	@BeforeClass
-	public void navigateFromHome() throws InterruptedException { 
+	public void initialise() throws InterruptedException { 
 		loginPage = homePage.launchLoginPage();		
 	}
 	
@@ -28,9 +28,9 @@ public class LoginTest extends AppTest{
 	}
 	
 	@AfterClass
-	public void navigateBackToHome() {
-		super.driver.close();
-		super.driver.switchTo().window(homePage.homePageWindowHandle);
+	public void naturalise() {
+		driver.close();
+		driver.switchTo().window(homePage.homePageWindowHandle);
 		homePage.closeModal();
 	}
 }
