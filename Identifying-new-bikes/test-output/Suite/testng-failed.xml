@@ -6,23 +6,12 @@
   </listeners>
   <test thread-count="1" name="Test1(failed)">
     <classes>
-      <class name="test_scenarios.UsedCarsTest">
-        <methods>
-          <include name="initialise"/>
-          <include name="testNumberOfPopularCategories"/>
-          <include name="destroy"/>
-          <include name="init"/>
-          <include name="naturalise"/>
-        </methods>
-      </class> <!-- test_scenarios.UsedCarsTest -->
       <class name="test_scenarios.LoginTest">
         <methods>
-          <include name="positivePhoneNumberLoginTest"/>
-          <include name="negativePhoneNumberLoginTest"/>
+          <include name="negativePhoneNumberLoginTest" invocation-numbers="0 1 2"/>
           <include name="initialise"/>
-          <include name="negativeEmailLoginTest"/>
+          <include name="negativeEmailLoginTest" invocation-numbers="0 1 2 3 4"/>
           <include name="destroy"/>
-          <include name="positiveEmailLoginTest"/>
           <include name="init"/>
           <include name="naturalise"/>
         </methods>
