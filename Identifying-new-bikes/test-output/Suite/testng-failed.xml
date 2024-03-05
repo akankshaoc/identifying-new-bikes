@@ -8,10 +8,12 @@
     <classes>
       <class name="test_scenarios.LoginTest">
         <methods>
+          <include name="positivePhoneNumberLoginTest" invocation-numbers="0"/>
           <include name="negativePhoneNumberLoginTest" invocation-numbers="0 1 2"/>
           <include name="initialise"/>
           <include name="negativeEmailLoginTest" invocation-numbers="0 1 2 3 4"/>
           <include name="destroy"/>
+          <include name="positiveEmailLoginTest" invocation-numbers="0"/>
           <include name="init"/>
           <include name="naturalise"/>
         </methods>

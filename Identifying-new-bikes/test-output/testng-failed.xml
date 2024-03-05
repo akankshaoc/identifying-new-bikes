@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Default test(failed)">
+<suite thread-count="1" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="listeners.ExtentReportManager"/>
+  </listeners>
+  <test thread-count="1" name="Test1(failed)">
     <classes>
       <class name="test_scenarios.LoginTest">
         <methods>
-          <include name="positivePhoneNumberLoginTest"/>
-          <include name="negativePhoneNumberLoginTest"/>
+          <include name="positivePhoneNumberLoginTest" invocation-numbers="0"/>
+          <include name="negativePhoneNumberLoginTest" invocation-numbers="0 1 2"/>
           <include name="initialise"/>
-          <include name="negativeEmailLoginTest"/>
+          <include name="negativeEmailLoginTest" invocation-numbers="0 1 2 3 4"/>
           <include name="destroy"/>
-          <include name="positiveEmailLoginTest"/>
+          <include name="positiveEmailLoginTest" invocation-numbers="0"/>
           <include name="init"/>
           <include name="naturalise"/>
         </methods>
       </class> <!-- test_scenarios.LoginTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Test1(failed) -->
+</suite> <!-- Failed suite [Suite] -->
