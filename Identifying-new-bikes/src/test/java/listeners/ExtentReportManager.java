@@ -59,7 +59,7 @@ public class ExtentReportManager implements ITestListener {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}// getTestClass()
+	}
 
 	public void onTestFailure(ITestResult result) {
 		test = extent.createTest(result.getName());

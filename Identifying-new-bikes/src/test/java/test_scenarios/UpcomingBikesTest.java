@@ -6,6 +6,7 @@ import java.util.List;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import common.AppTest;
@@ -49,7 +50,7 @@ public class UpcomingBikesTest extends AppTest{
 	public void releaseInFuture(String name, Double price, LocalDate release) {
 		Assert.assertTrue(LocalDate.now().compareTo(release) < 1, name + " has already released");
 	}
-
+	
 	@AfterClass
 	public void naturalise() {
 		homePage.launch();

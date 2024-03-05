@@ -85,7 +85,7 @@ public class UpcomingBikesPage {
 			String aux[] = new String[3];
 			aux[0] = bikeListItem.findElement(By.cssSelector("a>strong")).getText();
 			aux[1] = bikeListItem.findElement(By.xpath("//div[contains(@title, 'Price')]")).getText();
-			aux[2] = bikeListItem.findElement(By.xpath("//div[contains(text(), 'Launch Date')]")).getText();
+			aux[2] = bikeListItem.findElement(By.xpath("//div[contains(text(), 'Launch')]")).getText();
 			
 			//2.2. cleaning date String
 			aux[2] = aux[2].split(":")[1].trim();
